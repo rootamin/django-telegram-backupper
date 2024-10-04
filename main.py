@@ -1,9 +1,7 @@
 import os
 import subprocess
 from dotenv import load_dotenv
-
 import time
-
 import asyncio
 from telegram import Bot
 from telegram.error import TelegramError
@@ -26,6 +24,7 @@ TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 CHAT_ID = os.getenv('CHAT_ID')
 
 BACKUP_INTERVAL = int(os.getenv('BACKUP_INTERVAL')) # in hours
+
 
 # Function to rar a directory
 def rar_directory(directory_path, output_path, part_size=49):
