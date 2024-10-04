@@ -25,6 +25,7 @@ DB_PORT = os.getenv('DB_PORT')
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 CHAT_ID = os.getenv('CHAT_ID')
 
+BACKUP_INTERVAL = int(os.getenv('BACKUP_INTERVAL')) # in hours
 
 # Function to rar a directory
 def rar_directory(directory_path, output_path, part_size=49):
@@ -96,13 +97,16 @@ async def send_and_delete_files(directory_path):
 while True:
     # Rar the media directory
     rar_directory(MEDIA_DIR, f'{BASE_DIR}/backups/media.rar')
+    print("Successfully rarred the media directory\n=====================")
 
     # Dump the database
     output_file = os.path.join(BASE_DIR, 'backups', 'postgres.dumpfile')
     get_db_dump(output_file)
+    print("Successfully dumped the database\n=====================")
 
     # Send and delete the files
     asyncio.run(send_and_delete_files(f'{BASE_DIR}/backups'))
+    print("Successfully sent and deleted the files\n=====================")
 
     # Sleep for 72 hours
-    time.sleep(72 * 60 * 60)
+    time.sleep(BACKUP_INTERVAL * 60 * 60)
