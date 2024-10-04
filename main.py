@@ -2,6 +2,8 @@ import os
 import subprocess
 from dotenv import load_dotenv
 
+import time
+
 import asyncio
 from telegram import Bot
 from telegram.error import TelegramError
@@ -103,4 +105,4 @@ while True:
     asyncio.run(send_and_delete_files(f'{BASE_DIR}/backups'))
 
     # Sleep for 72 hours
-    asyncio.sleep(72 * 60 * 60)
+    time.sleep(72 * 60 * 60)
