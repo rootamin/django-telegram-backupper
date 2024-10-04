@@ -60,7 +60,7 @@ Note that the .env file has to be in the same directory as the main.py file.
 ## Running in the background
 We have to create a systemd service in order to run the tool in the background. You can do this by creating a file in the /etc/systemd/system/ directory with the following content:
 ```
-nano /etc/systemd/system/django-backupper.service
+sudo nano /etc/systemd/system/django-backupper.service
 ```
 
 Write the following template and modify the paths to your own paths:
@@ -80,8 +80,8 @@ WantedBy=multi-user.target
 ```
 Now activate the service by running the following commands:
 ```
-systemctl enable django-backupper.service
-systemctl start django-backupper.service
+sudo systemctl enable django-backupper.service
+sudo systemctl start django-backupper.service
 ```
 
 Now the tool will run in the background and backup your website contents periodically.
