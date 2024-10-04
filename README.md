@@ -18,12 +18,13 @@ cd django-telegram-backupper
 Now you need to install the required dependencies. You can do this by running the following command in your terminal. Use other package managers if you are not using apt:
 ```
 sudo apt-get install rar unrar
+sudo apt-get install python3 python3-pip
 ```
 Now you need to install the required python packages. You can do this by running the following command in your terminal:
 ```
-pip install -r requirements.txt
+/usr/bin/python3 -m pip install --break-system-packages -r requirements.txt
 ```
-
+Proceed the last command with caution, because it will install the required packages globally on your system. If you want to install the packages in a virtual environment, you can do so by creating a virtual environment and activating it before running the command.
 
 ## Configuration
 You have to specify some variables in the .env file in order to run the tool. This is a template for this project. You can copy it and fill in the necessary values:
