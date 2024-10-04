@@ -87,3 +87,20 @@ async def send_and_delete_files(directory_path):
 
 # Example usage
 # asyncio.run(send_and_delete_files('/home/rootamin/Downloads/YekanV3.0'))
+
+
+
+# Main loop
+while True:
+    # Rar the media directory
+    rar_directory(MEDIA_DIR, f'{BASE_DIR}/backups/media.rar')
+
+    # Dump the database
+    output_file = os.path.join(BASE_DIR, 'backups', 'postgres.dumpfile')
+    get_db_dump(output_file)
+
+    # Send and delete the files
+    asyncio.run(send_and_delete_files(f'{BASE_DIR}/backups'))
+
+    # Sleep for 72 hours
+    asyncio.sleep(72 * 60 * 60)
