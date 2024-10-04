@@ -1,6 +1,5 @@
 import os
 import subprocess
-import psycopg2
 from dotenv import load_dotenv
 
 # Looks for the .env file in the same directory as this file
