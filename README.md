@@ -64,7 +64,7 @@ We have to create a systemd service in order to run the tool in the background. 
 sudo nano /etc/systemd/system/django-backupper.service
 ```
 
-Write the following template and modify the paths to your own paths:
+Write the following template (assuming you are not using a virtual environment and followed the installation steps) and modify the paths to your own paths:
 ```
 [Unit]
 Description=Django Backupper Service
@@ -73,6 +73,7 @@ After=network.target
 [Service]
 User=root
 WorkingDirectory=/path/to/your/django-telegram-backupper
+EnvironmentFile=/path/to/your/django-telegram-backupper/.env
 ExecStart=/usr/bin/python3 /path/to/your/django-telegram-backupper/main.py
 Restart=always
 
