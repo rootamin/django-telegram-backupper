@@ -12,6 +12,7 @@ It also compresses the backed up files in rar parts in order to bypass Telegrams
 To install the tool, you will need to download the source code from the GitHub repository. You can do this by running the following command in your terminal:
 ```
 git clone https://github.com/rootamin/django-telegram-backupper.git
+cd django-telegram-backupper
 ```
 
 Now you need to install the required dependencies. You can do this by running the following command in your terminal. Use other package managers if you are not using apt:
