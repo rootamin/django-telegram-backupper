@@ -27,7 +27,7 @@ BACKUP_INTERVAL = int(os.getenv('BACKUP_INTERVAL')) # in hours
 
 
 # Function to rar a directory
-def rar_directory(directory_path, output_path, part_size=49):
+def rar_directory(directory_path, output_path, part_size=48):
     os.system(f"rar a -v{part_size}M {output_path} {directory_path}")
 
 # Example usage
